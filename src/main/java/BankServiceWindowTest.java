@@ -6,7 +6,9 @@ public class BankServiceWindowTest {
 
 //        final BankServiceWindow bankServiceWindow=new BankServiceWindow();
         // 共享锁
+        // 多个线程竞争这两把锁，先竞争到的先执行，另外的等候着
         final BankServiceWindows bankServiceWindow=new BankServiceWindows(2);
+
         Thread tom=new Thread(){
             public void run(){
                 bankServiceWindow.handle();
